@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('initialize terraform') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+
+        stage('plan terraform') {
+            steps {
+                sh 'terraform plan'
+            }
+        }
+
+        stage('apply terraform') {
+            steps {
+                sh 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
+ 1
